@@ -1,0 +1,28 @@
+<div class="card card-login mx-auto mt-5">
+  <div class="card-header">Login</div>
+  <div class="card-body">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="text" name="email" [(ngModel)]="username" placeholder="Username" required="required" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" [(ngModel)]="password" placeholder="Password" required="required" class="form-control"
+        />
+      </div>
+      <button (click)="login()" class="btn-block btn btn-primary">
+        <i class="fa fa-user"></i>Login</button>
+    </form>
+    <div class="text-center">
+      <a href="#" class="d-block small mt-3">Register an Account</a>
+    </div>
+    <hr/>
+    <div class="row">
+      <div class="col">
+        <a href="/auth/google" class="btn btn-danger">
+          <span class="fa fa-google-plus"> </span> Login with Google </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
-import {Participant} from '../models/participant';
-import {Heat} from '../models/heat';
+import { Participant } from '../models/participant';
+import { Heat } from '../models/heat';
 
 export interface IChampionship {
   winner: Participant;
