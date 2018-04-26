@@ -13,18 +13,21 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './routing/app-routing';
 import { FormsModule } from '@angular/forms';
 
+import { AuthService } from './services/auth.service';
+
 @NgModule({
   declarations: [AppComponent, NavbarComponent, LoginComponent, HomeComponent],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
     AngularFireDatabaseModule,
+    AngularFireAuthModule,
     AngularFireAuthModule,
     NgbModule.forRoot(),
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

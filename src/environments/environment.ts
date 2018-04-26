@@ -6,11 +6,11 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyCgnftoiAUNLuNSaUajSntg9mqlny4_OU8',
-    authDomain: 'webs6-7cd3c.firebaseapp.com',
-    databaseURL: 'https://webs6-7cd3c.firebaseio.com',
-    projectId: 'webs6-7cd3c',
+    apiKey: 'AIzaSyBUnxClf5GoSlQ2i62jo3K828nQtLsbvd0',
+    authDomain: 'webs6-d5948.firebaseapp.com',
+    databaseURL: 'https://webs6-d5948.firebaseio.com',
+    projectId: 'webs6-d5948',
     storageBucket: '',
-    messagingSenderId: '885517171284'
+    messagingSenderId: '628925580795'
   }
 };
