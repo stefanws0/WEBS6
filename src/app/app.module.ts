@@ -9,14 +9,15 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './pages/home/home.component';
 import { AppRoutingModule } from './routing/app-routing';
 import { FormsModule } from '@angular/forms';
 
 import { AuthService } from './services/auth.service';
+import { ChampionshipComponent } from './championship/championship.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, LoginComponent, HomeComponent],
+  declarations: [AppComponent, NavbarComponent, LoginComponent, HomeComponent, ChampionshipComponent],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),

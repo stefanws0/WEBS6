@@ -4,44 +4,31 @@ import {AngularFireAuth} from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
+import {AngularFireDatabase} from "angularfire2/database";
 
 @Injectable()
 export class AuthService {
-  private user: Observable<firebase.User>;
-  private _user = new Subject<firebase.User>();
-  private userDetails: firebase.User = null;
+  authState: any = null;
 
-  constructor(private _firebaseAuth: AngularFireAuth, private router: Router) {
-    this.user = _firebaseAuth.authState;
-    this.user.subscribe(
-      (user) => {
-        if (user) {
-          this._user.next(user);
-          this.userDetails = user;
-        } else {
-          this._user.next();
-          this.userDetails = null;
-        }
-      }
-    );
+  constructor(private afAuth: AngularFireAuth,
+  private db: AngularFireDatabase, private router: Router) {
+    this.afAuth.authState.subscribe((auth) => {
+      this.authState = auth
+    });
   }
 
   signInWithGoogle() {
-    return this._firebaseAuth.auth.signInWithPopup(
+    return this.afAuth.auth.signInWithPopup(
       new firebase.auth.GoogleAuthProvider()
     );
   }
 
-  getUser() {
-    return this._user.asObservable();
+  get currentUserObservable(): any {
+    return this.afAuth.authState
   }
 
-  isLoggedIn() {
-    return this.userDetails != null;
-  }
-
-  logout() {
-    this._firebaseAuth.auth.signOut()
-      .then((res) => this.router.navigate(['/']));
+  signOut(): void {
+    this.afAuth.auth.signOut();
+    this.router.navigate(['/'])
   }
 }

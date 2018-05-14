@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   login() {
     if (this.password === this.hardCodedUser.password && this.username === this.hardCodedUser.username) {
       localStorage.setItem('currentUser', JSON.stringify(this.hardCodedUser));
-      this.router.navigate(['']);
+      this.router.navigate(['/home']);
     } else {
       alert('Invalid credentials');
     }
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
     this.authService.signInWithGoogle()
       .then((res) => {
         this.user = res.user;
-        this.router.navigate(['']);
+        this.router.navigate(['/home']);
       })
       .catch((err) => console.log(err));
   }
